@@ -12,6 +12,8 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import net.keker.anomalymod.item.ModItems;
+import net.keker.anomalymod.block.ModBlocks;
 
 import java.util.stream.Collectors;
 
@@ -29,6 +31,9 @@ public class AnomalyMod
         eventBus.addListener(this::setup);
         eventBus.addListener(this::enqueueIMC);
         eventBus.addListener(this::processIMC);
+
+        ModBlocks.register(eventBus);
+        ModItems.register(eventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
